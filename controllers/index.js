@@ -8,23 +8,23 @@ var objectAjax = {
 }
 
 // dùng thư viện để đọc file hoặc api từ backend
-var promise = axios(objectAjax);
-console.log(promise);
+// var promise = axios(objectAjax);
+// console.log(promise);
 
-promise.then(function (res) {
+axios(objectAjax).then(function (res) {
     var noiDungTable = '';
     for (let i = 0; i < res.data.length; i++) {
         //sau mỗi lần lấy ra 1 đối tượng người dùng
         var nguoiDung = res.data[i];
         //từ đối tương người dùng sẽ tạo ra thẻ re tương ứng
         noiDungTable += `
-       <tr>
+        <tr>
             <td>${nguoiDung.TaiKhoan}</td>
             <td>${nguoiDung.MatKhau}</td>
             <td>${nguoiDung.HoTen}</td>
             <td>${nguoiDung.Email}</td>
             <td>${nguoiDung.SoDT}</td>
-       </tr>
+        </tr>
         `
     }
     //dom đến table tbody chèn các tr vừa tạo vào
